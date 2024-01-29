@@ -1,5 +1,5 @@
-// TodoForm.js
 import React, { useState } from "react";
+import { Button, Form, InputGroup } from "react-bootstrap";
 
 const TodoForm = ({ onAdd }) => {
   const [text, setText] = useState("");
@@ -12,15 +12,21 @@ const TodoForm = ({ onAdd }) => {
   };
 
   return (
-    <div>
-      <input
-        type="text"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-        placeholder="Add a new todo"
-      />
-      <button onClick={handleAdd}>Add</button>
-    </div>
+    <Form>
+      <InputGroup className="mb-3">
+        <Form.Control
+          type="text"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+          placeholder="Add a new todo"
+        />
+        <InputGroup.Append>
+          <Button variant="primary" onClick={handleAdd}>
+            Add
+          </Button>
+        </InputGroup.Append>
+      </InputGroup>
+    </Form>
   );
 };
 

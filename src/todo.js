@@ -1,12 +1,14 @@
-// Todo.js
 import React from "react";
+import { Button, Card } from "react-bootstrap";
 
 const Todo = ({ todo, onDelete }) => {
   return (
-    <div>
-      {todo.text}
-      <button onClick={() => onDelete(todo.id)}>Delete</button>
-    </div>
+    <Card.Body className="d-flex justify-content-between align-items-center">
+      <Card.Text>{todo.text}</Card.Text>
+      <Button variant="danger" onClick={() => onDelete(todo.id)}>
+        Delete
+      </Button>
+    </Card.Body>
   );
 };
 
